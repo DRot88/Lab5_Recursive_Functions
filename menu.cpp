@@ -19,7 +19,10 @@ Menu::Menu() {
 
 void Menu::displayMenu() {
   int choice;
-  string str;
+  string str = "";
+  int arrSize = 0;
+  int triangleSize = 0;
+  int arrValue = 0;
   cout << "\n1: Reverse A String" << endl;
   cout << "2: Calculate Sum of an Array" << endl;
   cout << "3: Calculate a Triangular Number" << endl;
@@ -28,7 +31,7 @@ void Menu::displayMenu() {
   cin >> choice;
 
   switch(choice) {
-    case 1 :
+    case 1 : {
       cin.ignore();
       cout << "\nPlease enter a string you would like to reverse: " << endl;
       getline(cin, str);
@@ -37,19 +40,37 @@ void Menu::displayMenu() {
       revStr(str);
       displayMenu();
       break;
-    case 2 :
+    }
+    case 2 : {
       cin.ignore();
+      cout << "\nPlease enter the size of the array you would like: ";
+      cin >> arrSize;
+      int arr[arrSize];
+      cout << endl;
+      for (int x = 0; x < arrSize; x++) {
+        cout << "Please enter a integer for spot # " << x+1 << " in your array: ";
+        cin >> arrValue;
+        arr[x] = arrValue;
+      }
+      cout << "\nThe sum of your array is: " << sum(arr, arrSize-1) << endl;
       displayMenu();
       break;
-    case 3 :
+    }
+    case 3 : {
       cin.ignore();
+      cout << "\nPlease enter the amount of 'rows' for the triangular calculation: ";
+      cin >> triangleSize;
+      cout << "\nThe triangular sum of size " << triangleSize;
+      cout << " is: " << triangleSum(triangleSize) << endl;
       displayMenu();
       break;
     case 4 :
       cin.ignore();
       cout << "Exiting the program." << endl << endl;
       break;
-    default :
+    }
+    default : {
       cout << "Invalid choice, exiting the program." << endl << endl;
+    }
   }
 }
