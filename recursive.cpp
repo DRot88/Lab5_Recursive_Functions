@@ -4,6 +4,11 @@
 using std::cout;
 using std::string;
 
+/****************************************************************
+** Function: revStr
+** Description: This will take a string as input, and will then
+                repeat the reverse of that string back to the user.
+****************************************************************/
   void revStr(string str) {
     int stringLen = str.size();
 
@@ -18,12 +23,25 @@ using std::string;
     return;
   }
 
-  int sum(int arr[], int arrLen) {
+/****************************************************************
+** Function: sumArray
+** Description: This will take an array and length of the array
+                as input, and return the sum of the integers
+                within the array.
+****************************************************************/
+
+  int sumArray(int arr[], int arrLen) {
     if (arrLen == 0) { //base case
       return arr[arrLen];
     }
-    return arr[arrLen] + sum(arr,arrLen-1); //recurive call
+    return arr[arrLen] + sumArray(arr,arrLen-1); //recurive call
   }    
+
+/****************************************************************
+** Function: triangleSum
+** Description: This will take an integer as input, and return the
+                triangular sum (think total bowling pins by row)
+****************************************************************/
 
   int triangleSum(int num) {
     if (num == 0) { //base case

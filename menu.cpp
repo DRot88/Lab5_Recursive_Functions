@@ -28,7 +28,11 @@ void Menu::displayMenu() {
   cout << "3: Calculate a Triangular Number" << endl;
   cout << "4: Exit" << endl << endl;
   cout << "Please choose from one of the above options: ";
-  cin >> choice;
+
+  while(!(cin >> choice)) {
+    cin.clear();
+    cin.ignore();
+  }
 
   switch(choice) {
     case 1 : {
@@ -44,15 +48,21 @@ void Menu::displayMenu() {
     case 2 : {
       cin.ignore();
       cout << "\nPlease enter the size of the array you would like: ";
-      cin >> arrSize;
+      while (!(cin >> arrSize)) {
+        cin.clear();
+        cin.ignore();
+      }
       int arr[arrSize];
       cout << endl;
       for (int x = 0; x < arrSize; x++) {
         cout << "Please enter a integer for spot # " << x+1 << " in your array: ";
-        cin >> arrValue;
+          while(!(cin >> arrValue)) {
+            cin.clear();
+            cin.ignore();            
+          }
         arr[x] = arrValue;
       }
-      cout << "\nThe sum of your array is: " << sum(arr, arrSize-1) << endl;
+      cout << "\nThe sum of your array is: " << sumArray(arr, arrSize-1) << endl;
       displayMenu();
       break;
     }
@@ -70,7 +80,8 @@ void Menu::displayMenu() {
       break;
     }
     default : {
-      cout << "Invalid choice, exiting the program." << endl << endl;
+      cout << "Invalid choice, please choose a valid option." << endl;
+      displayMenu();
     }
   }
 }

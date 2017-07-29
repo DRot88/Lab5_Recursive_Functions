@@ -4,7 +4,7 @@
 using std::string;
 
 void revStr(string str);
-int sum(int arr[], int arrLen);
+int sumArray(int arr[], int arrLen);
 int triangleSum(int num);
 
 #endif
